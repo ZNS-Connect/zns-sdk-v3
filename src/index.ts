@@ -51,6 +51,16 @@ const ZNSConnectClass = class {
       throw error;
     }
   }
+
+async checkDomain(domain: string): Promise<boolean> {
+  try {
+    const domainData = await resolveDomain(domain);
+    return domainData.owner !== '0x0000000000000000000000000000000000000000';
+  } catch (error) {
+    console.error('Error checking domain:', error);
+    return false;
+  }
+}
 };
 
 function ZNSConnect() {
