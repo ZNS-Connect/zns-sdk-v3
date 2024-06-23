@@ -38,64 +38,37 @@ export const getChainDetailsByTLD = (tld: string): ChainRegistry => {
   let chain: ChainDetails;
   switch (tld) {
     case 'nft':
-      registryAddress = '0x3173988cbA2d127E1bB074dbF30C01569C133688';
+      registryAddress = '0x59B9Ac688e39A14b938AC8C3269db66D8aDB9aF6';
       chain = {
-        id: 1687,
-        name: 'Mint Sepolia Testnet',
+        id: 185,
+        name: 'Mint Mainnet',
         iconBackground: '#fff',
         nativeCurrency: { name: 'Mint', symbol: 'ETH', decimals: 18 },
         rpcUrls: {
-          default: { http: ['https://sepolia-testnet-rpc.mintchain.io'] },
+          default: { http: ['https://rpc.mintchain.io'] },
         },
         blockExplorers: {
-          default: {
-            name: 'Mint',
-            url: 'https://sepolia-testnet-explorer.mintchain.io/',
-          },
-        },
-      };
-      break;
-    case 'xterio':
-      registryAddress = '0x47D3EbdD10DCd834289484DeD9BfddFdE410b419';
-      chain = {
-        id: 1637450,
-        name: 'Xterio Testnet',
-        iconBackground: '#fff',
-        nativeCurrency: { name: 'Xterio', symbol: 'tBNB', decimals: 18 },
-        rpcUrls: {
-          default: { http: ['https://xterio-testnet.alt.technology'] },
-        },
-        blockExplorers: {
-          default: {
-            name: 'Xterio',
-            url: 'https://xterio-testnet-explorer.alt.technology/',
-          },
+          default: { name: 'Mint', url: 'https://explorer.mintchain.io/' },
         },
       };
       break;
     case 'honey':
-      registryAddress = '0xA4d4d21E6C52F9490D1902CB84DB43eAD89a072D';
+      registryAddress = '0xf180136DdC9e4F8c9b5A9FE59e2b1f07265C5D4D';
       chain = {
-        id: 80085,
-        name: 'Berachain Artio',
-        nativeCurrency: {
-          decimals: 18,
-          name: 'BERA Token',
-          symbol: 'BERA',
-        },
+        id: 80084,
+        name: 'Bartio Testnet',
+        iconBackground: '#000',
+        nativeCurrency: { name: 'BERA', symbol: 'BERA', decimals: 18 },
         rpcUrls: {
-          default: { http: ['https://artio.rpc.berachain.com'] },
+          default: { http: ['https://bartio.rpc.berachain.com'] },
         },
         blockExplorers: {
-          default: {
-            name: 'Berachain',
-            url: 'https://artio.beratrail.io',
-          },
+          default: { name: 'BERA', url: 'https://bartio.beratrail.io/' },
         },
       };
       break;
     case 'cz':
-      registryAddress = '0x7e2CF06F092c9F5cF5972eF021635b6c8E1C5bb2';
+      registryAddress = '0xa83Fd30EF08f96b198f86C4d107c7D78AF1752d2';
       chain = {
         id: 56,
         name: 'BNB Smart Chain',
@@ -152,21 +125,18 @@ export const getChainDetailsByTLD = (tld: string): ChainRegistry => {
         },
       };
       break;
-    case 'taiko':
-      registryAddress = '0x3Eff8945b1A2c5E3829DAD0a94576c851e409877';
+    case '🥁':
+      registryAddress = '0xFb2Cd41a8aeC89EFBb19575C6c48d872cE97A0A5';
       chain = {
-        id: 167009,
-        name: 'Taiko Hekla',
+        id: 167000,
+        name: 'Taiko Mainnet',
         iconBackground: '#fff',
         nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
         rpcUrls: {
-          default: { http: ['https://rpc.hekla.taiko.xyz'] },
+          default: { http: ['https://rpc.mainnet.taiko.xyz'] },
         },
         blockExplorers: {
-          default: {
-            name: 'Taiko Hekla',
-            url: 'https://hekla.taikoscan.network/',
-          },
+          default: { name: 'Taiko Mainnet', url: 'https://taikoscan.io' },
         },
       };
       break;
