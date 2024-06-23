@@ -2,7 +2,10 @@ import { createPublicClient, http } from 'viem';
 import { abi } from './abi';
 import { getChainDetailsByTLD } from './getChainDetailsbyTLD';
 
-export async function getTotalPrice(domainArray: string[], tld: string) {
+export async function getTotalPrice(
+  domainArray: string[],
+  tld: string
+): Promise<{ totalPrice: bigint }> {
   try {
     const chainDetails = getChainDetailsByTLD(tld);
     if (!chainDetails) {
@@ -16,37 +19,25 @@ export async function getTotalPrice(domainArray: string[], tld: string) {
       transport: http(),
     });
 
-    const contractCallRegisterPromises = domainArray.map(item =>
-      publicClient.readContract({
-        abi: abi,
-        address: registryAddress as `0x${string}`,
-        functionName: 'priceToRegister',
-        args: [item.length],
-      })
+    const contractCallPromises = domainArray.map(
+      item =>
+        publicClient.readContract({
+          abi: abi,
+          address: registryAddress as `0x${string}`,
+          functionName: 'priceToRegister',
+          args: [item.length],
+        }) as Promise<bigint> // Explicitly cast the promise to return a bigint
     );
 
-    const contractCallRenewPromises = domainArray.map(item =>
-      publicClient.readContract({
-        abi: abi,
-        address: registryAddress as `0x${string}`,
-        functionName: 'priceToRenew',
-        args: [item.length],
-      })
-    );
+    const cartItemsPriceRegister = await Promise.all(contractCallPromises);
 
-    const cartItemsPriceRegister = await Promise.all(
-      contractCallRegisterPromises
-    );
-    const cartItemsPriceRenew = await Promise.all(contractCallRenewPromises);
+    if (cartItemsPriceRegister) {
+      const totalPrice = cartItemsPriceRegister.reduce(
+        (total, price) => total + price,
+        BigInt(0)
+      );
 
-    if (cartItemsPriceRegister && cartItemsPriceRenew) {
-      const cartItemsPrice = domainArray.map((item, index) => ({
-        name: item,
-        priceToRegister: cartItemsPriceRegister[index],
-        priceToRenew: cartItemsPriceRenew[index],
-      }));
-
-      return { cartItemsPrice };
+      return { totalPrice };
     } else {
       throw new Error('Failed to fetch prices');
     }
