@@ -19,7 +19,7 @@ Resolves the blockchain address for a given top-level domain (TLD) and address.
 **Example:**
 
 ```typescript
-const result = await ZNSConnectClass.resolveAddress('nft', '0x123...');
+const result = await ZNSConnect.resolveAddress('nft', '0x123...');
 console.log(result);
 ```
 
@@ -36,7 +36,7 @@ Resolves the owner of a given domain.
 **Example:**
 
 ```typescript
-const owner = await ZNSConnectClass.resolveDomain('example.nft');
+const owner = await ZNSConnect.resolveDomain('example.nft');
 console.log(owner);
 ```
 
@@ -53,7 +53,7 @@ Gets the registry information for a given domain.
 **Example:**
 
 ```typescript
-const registry = await ZNSConnectClass.getRegistry('example.nft');
+const registry = await ZNSConnect.getRegistry('example.nft');
 console.log(registry);
 ```
 
@@ -70,7 +70,7 @@ Retrieves metadata for a given domain.
 **Example:**
 
 ```typescript
-const metadata = await ZNSConnectClass.getMetadata('example.nft');
+const metadata = await ZNSConnect.getMetadata('example.nft');
 console.log(metadata);
 ```
 
@@ -87,7 +87,7 @@ Checks if a domain is already registered.
 **Example:**
 
 ```typescript
-const isRegistered = await ZNSConnectClass.checkDomain('example.nft');
+const isRegistered = await ZNSConnect.checkDomain('example.nft');
 console.log(isRegistered ? 'Registered' : 'Available');
 ```
 
@@ -105,7 +105,7 @@ Gets the total price for registering a list of domains under a specific TLD.
 **Example:**
 
 ```typescript
-const price = await ZNSConnectClass.getPrice(['example1', 'example2'], 'nft');
+const price = await ZNSConnect.getPrice(['example1', 'example2'], 'nft');
 console.log(price);
 ```
 
@@ -125,7 +125,7 @@ Registers a list of domains under a specific TLD to specified owner addresses.
 **Example:**
 
 ```typescript
-await ZNSConnectClass.register(walletClient, ['example1', 'example2'], ['0x123...', '0x456...'], 'nft');
+await ZNSConnect.register(walletClient, ['example1', 'example2'], ['0x123...', '0x456...'], 'nft');
 ```
 
 This documentation provides a comprehensive guide to using the ZNSConnect SDK for interacting with blockchain domains.

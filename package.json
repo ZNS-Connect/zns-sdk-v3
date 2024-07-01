@@ -1,6 +1,6 @@
 {
   "name": "zns-sdk",
-  "version": "0.0.4",
+  "version": "0.0.6-1",
   "description": "SDK for lookup up and interacting with ZNS domains",
   "main": "./lib/index.js",
   "files": [
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Inevitable-Design/zns-sdk.git"
+    "url": "git+https://github.com/ZNS-Connect/zns-sdk-v3.git"
   },
   "license": "MIT",
   "author": {
@@ -42,9 +42,9 @@
     "codecov"
   ],
   "bugs": {
-    "url": "https://github.com/Inevitable-Design/zns-sdk/issues"
+    "url": "https://github.com/ZNS-Connect/zns-sdk-v3.git/issues"
   },
-  "homepage": "https://github.com/Inevitable-Design/zns-sdk#readme",
+  "homepage": "https://github.com/ZNS-Connect/zns-sdk-v3.git#readme",
   "devDependencies": {
     "@ryansonshine/commitizen": "^4.2.8",
     "@ryansonshine/cz-conventional-changelog": "^3.3.4",
@@ -113,8 +113,7 @@
           }
         }
       ],
-      "@semantic-release/npm",
-      "@semantic-release/github"
+      "@semantic-release/npm"
     ]
   },
   "dependencies": {
