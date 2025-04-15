@@ -133,7 +133,3 @@ await ZNSConnect.register(
 ```
 
 This documentation provides a comprehensive guide to using the ZNSConnect SDK for interacting with blockchain domains.
-
-```
-
-```
