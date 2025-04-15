@@ -79,7 +79,7 @@ Registers a list of domains under a specific TLD to specified owner addresses.
 **Example:**
 
 ```typescript
-await ZNSConnectClass.register(walletClient, ['example1', 'example2'], ['0x123...', '0x456...'], 'nft');
+await ZNSConnectClass.register(walletClient, ['example1', 'example2'], ['0x123...', '0x456...'], 'ink');
 ```
 
 ### Confirmation and Feedback

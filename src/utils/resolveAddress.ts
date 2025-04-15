@@ -1,21 +1,11 @@
 import { abi } from './abi';
 import { getChainDetailsByTLD } from './getChainDetailsbyTLD';
 import { createPublicClient, http } from 'viem';
+import { TLD } from './types';
 
 const chainDetailsCache = new Map();
 
-export async function resolveAddress(
-  tld:
-    | 'nft'
-    | 'xterio'
-    | 'honey'
-    | 'cz'
-    | 'xlayer'
-    | 'tabi'
-    | 'taiko'
-    | 'scroll',
-  address: `0x${string}`
-) {
+export async function resolveAddress(tld: TLD, address: `0x${string}`) {
   try {
     let chainDetails = chainDetailsCache.get(tld);
     if (!chainDetails) {
